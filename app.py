@@ -4,11 +4,9 @@ from urllib.parse import urlparse
 import re
 
 
-
 model = joblib.load("model.pkl")
 
 FEATURES = model.feature_names_in_
-
 
 def extract_features(url):
     parsed = urlparse(url)
@@ -31,25 +29,26 @@ def extract_features(url):
     return [features[col] for col in FEATURES]
 
 
-st.set_page_config(page_title="Phishing Detector")
+st.set_page_config(page_title="Phishing URL Detector")
 
 st.title(" Phishing URL Detector")
-st.write("Enter any URL and check Safe or Phishing")
+st.write("Enter any URL and check whether it is Legitimate or Phishing")
 
 url = st.text_input("Enter URL")
 
-if st.button("submit"):
+if st.button("Submit"):
     if not url:
         st.warning("Please enter a URL")
     else:
         try:
             features = extract_features(url)
+
             prediction = model.predict([features])[0]
 
             
-            
 
-            if prediction == 0:
+            
+            if prediction == 1:
                 st.error(" Phishing URL")
             else:
                 st.success("Legitimate URL")
