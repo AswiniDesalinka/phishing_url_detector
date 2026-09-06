@@ -1,62 +1,82 @@
-Phishing Website Detection System
+🛡️ Phishing URL Detection System
 
- Project Overview:
+Machine Learning Based Phishing Website Detection using Random Forest and Streamlit
 
-The Phishing Website Detection System is a Machine Learning-based project that predicts whether a given website URL is legitimate or phishing.
-
-Phishing websites are designed to imitate legitimate websites and trick users into providing sensitive information such as usernames, passwords, banking details, and personal information.
-
-This project uses URL-based features and a Random Forest Classifier to identify potentially phishing websites.
+A Machine Learning-based cybersecurity project that analyzes URL characteristics and predicts whether a given website URL is Legitimate or Phishing.
 
 ---
-Objectives:
 
-- Detect phishing websites using Machine Learning.
+🚀 Live Demo
+
+🔗 Try the Application:
+https://phishing-detector-aswini.streamlit.app
+
+---
+
+📌 Project Overview
+
+Phishing is a common cybersecurity attack in which attackers create fraudulent websites that imitate legitimate websites to steal sensitive information such as usernames, passwords, banking details, and personal information.
+
+This project uses Machine Learning to analyze different characteristics of website URLs and classify them as either Legitimate or Phishing.
+
+A Random Forest Classifier is used to train the model, and a Streamlit web application provides an easy-to-use interface for making predictions.
+
+---
+
+🎯 Objectives
+
+- Detect potentially phishing URLs using Machine Learning.
 - Analyze important characteristics of website URLs.
-- Perform data preprocessing and feature engineering.
+- Perform data preprocessing and feature selection.
 - Train and evaluate a classification model.
-- Provide a simple interface for users to check a URL.
+- Extract URL features automatically.
+- Provide a simple web-based interface for users.
+- Demonstrate the application of Machine Learning in cybersecurity.
 
 ---
 
- Technologies Used:
+🧰 Technologies Used
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Random Forest Classifier
-- Matplotlib
-- Streamlit
-- Joblib
-- Google Colab / VS Code
-- Git & GitHub
-
----
-
-Dataset:
-
-The project uses a dataset containing URL-based features used to identify phishing websites.
-
-Some of the features include:
-
-- "NumDots"
-- "UrlLength"
-- "NumDash"
-- "AtSymbol"
-- "IpAddress"
-- "HttpsInHostname"
-- "PathLevel"
-- "PathLength"
-- "NumNumericChars"
-
-The target variable is:
-
-- "Phising" — indicates whether the URL is phishing or legitimate.
+Technology| Purpose
+🐍 Python| Programming Language
+🐼 Pandas| Data Processing
+🔢 NumPy| Numerical Computation
+🤖 Scikit-learn| Machine Learning
+🌲 Random Forest| Classification Algorithm
+📊 Matplotlib| Data Visualization
+💾 Joblib| Model Saving and Loading
+🌐 Streamlit| Web Application
+☁️ Google Colab| Model Development
+💻 VS Code| Development
+🔧 Git & GitHub| Version Control
 
 ---
 
-Project Workflow:
+📊 Dataset
+
+The project uses a dataset containing URL-based features for identifying phishing websites.
+
+Important URL Features
+
+- "NumDots" – Number of dots in the URL
+- "UrlLength" – Length of the URL
+- "NumDash" – Number of dashes in the URL
+- "AtSymbol" – Presence of the "@" symbol
+- "IpAddress" – Indicates whether an IP address is used
+- "HttpsInHostname" – HTTPS-related hostname feature
+- "PathLevel" – Depth of the URL path
+- "PathLength" – Length of the URL path
+- "NumNumericChars" – Number of numeric characters
+
+Target Variable
+
+"Phising"
+
+«Note: "Phising" is the original target-column name in the dataset. The standard spelling is Phishing.»
+
+---
+
+🔄 Project Workflow
 
 Dataset
    ↓
@@ -68,6 +88,8 @@ Train-Test Split
    ↓
 Random Forest Classifier
    ↓
+Model Training
+   ↓
 Model Evaluation
    ↓
 Save Trained Model
@@ -76,126 +98,189 @@ Streamlit Application
    ↓
 Enter Website URL
    ↓
-Prediction
+Extract URL Features
+   ↓
+Machine Learning Prediction
    ↓
 Phishing / Legitimate
 
 ---
 
-Machine Learning Model:
+🤖 Machine Learning Model
 
-A Random Forest Classifier is used for classification.
+Random Forest Classifier
 
-Random Forest combines multiple decision trees to make predictions and is suitable for classification problems involving multiple URL features.
+The project uses a Random Forest Classifier for phishing URL classification.
 
-The dataset is divided into training and testing data using an 80:20 split.
+Random Forest is an ensemble Machine Learning algorithm that combines multiple decision trees to produce a final prediction.
+
+The dataset is divided into:
+
+- 80% Training Data
+- 20% Testing Data
+
+The model learns patterns from URL-based features and uses these patterns to classify new URLs.
 
 ---
 
- Model Evaluation:
+📈 Model Evaluation
 
-The trained model is evaluated using classification metrics such as:
+The trained model is evaluated using the following classification metrics:
 
 - Accuracy
 - Precision
 - Recall
-- F1-score
+- F1-Score
 - Confusion Matrix
 
-The model achieved approximately 82.8% accuracy on the test data during development.
+Model Accuracy
 
-«Note: Model performance may vary depending on preprocessing, dataset version, features, and training configuration.»
+The model achieved approximately:
+
+🎯 82.8% Accuracy
+
+«Model performance may vary depending on preprocessing, dataset version, feature selection, and training configuration.»
 
 ---
 
-Application:
+🌐 Streamlit Application
 
-The project includes a simple Streamlit-based interface.
+The project includes an interactive web application developed using Streamlit.
 
-Users can enter a website URL, and the system extracts relevant URL features and uses the trained Machine Learning model to predict whether the website is:
+Users can enter a website URL, and the application extracts relevant URL features and sends them to the trained Machine Learning model.
 
+Application Workflow
+
+User enters URL
+       ↓
+URL Feature Extraction
+       ↓
+Trained Random Forest Model
+       ↓
+Prediction
+       ↓
+┌───────────────────┐
+│   Legitimate URL  │
+│        OR         │
+│    Phishing URL   │
+└───────────────────┘
+
+Example
+
+Input:
+https://www.example.com
+
+Output:
 Legitimate
 
-or
-
-Phishing
+The application is intended to provide an additional layer of awareness when users encounter suspicious URLs.
 
 ---
 
- Project Structure:
+✨ Key Features
+
+- 🔍 URL-based phishing detection
+- 🤖 Machine Learning classification
+- 🌲 Random Forest algorithm
+- 🧠 Automatic URL feature extraction
+- 🌐 Interactive Streamlit interface
+- 📊 Model evaluation
+- 💾 Trained model saved using Joblib
+- 🚀 Web-based prediction
+- 🔧 Easy to run locally
+
+---
+
+📁 Project Structure
 
 phishing_url_detector/
 │
 ├── app.py
 ├── model.pkl
 ├── Phising_Detection_Dataset.csv
+├── project_2.ipynb
 ├── requirements.txt
 ├── README.md
-└── screenshots/
+└── phishing url detection ppt (1).pdf
 
 ---
 
- How to Run the Project:
+⚙️ Installation and Setup
 
-1. Clone the repository
+1. Clone the Repository
 
 git clone https://github.com/AswiniDesalinka/phishing_url_detector.git
 
-2. Open the project folder
+2. Navigate to the Project Directory
 
 cd phishing_url_detector
 
-3. Install required libraries
+3. Install Dependencies
 
 pip install -r requirements.txt
 
-4. Run the Streamlit application
+4. Run the Streamlit Application
 
 streamlit run app.py
 
-The application will open in your browser.
+The application will open in your default web browser.
 
 ---
 
-Requirements:
+📦 Requirements
 
-The main Python libraries used are:
+The main Python libraries used in this project are:
 
 pandas
 numpy
 scikit-learn
 joblib
 streamlit
+matplotlib
+
+All required dependencies are listed in:
+
+requirements.txt
 
 ---
 
-Future Enhancements:
+🔮 Future Enhancements
 
-The project can be improved by:
+The system can be further improved by:
 
-- Using larger and more diverse datasets.
+- Using larger and more diverse phishing URL datasets.
 - Testing additional Machine Learning algorithms.
-- Improving feature extraction.
-- Adding real-time URL analysis.
-- Integrating domain and webpage-based features.
+- Improving URL feature extraction.
+- Adding real-time domain analysis.
+- Integrating webpage-based features.
 - Improving model accuracy.
-- Deploying the application as a web service.
-- Adding explainable AI features to show why a URL was classified as phishing.
+- Adding explainable AI to show why a URL was classified as phishing.
+- Detecting newly emerging phishing patterns.
+- Deploying the system as a scalable web service.
+- Adding additional security-related features.
 
 ---
-Output:
-https://phishing-detector-aswini.streamlit.app
 
-Limitations:
+⚠️ Limitations
 
-- The prediction depends on the features used during model training.
+- The prediction depends on the URL features used during model training.
 - The system may not detect every newly created phishing website.
 - Model performance depends on the quality and diversity of the dataset.
 - URL-based analysis alone cannot guarantee that a website is completely safe.
+- Predictions should not be considered a replacement for professional cybersecurity tools or safe browsing practices.
 
 ---
 
- Author:
+🎓 Academic Information
+
+Project Title: Phishing Website Detection System
+Domain: Machine Learning & Cybersecurity
+Degree: Master of Computer Applications (MCA)
+University: Adikavi Nannaya University
+
+---
+
+👩‍💻 Author
 
 Aswini Desalinka
 
@@ -204,8 +289,16 @@ Adikavi Nannaya University
 
 ---
 
-Conclusion:
+📜 License
 
-The Phishing Website Detection System demonstrates how Machine Learning can be applied to cybersecurity problems.
+This project was developed for educational and academic purposes.
 
-By analyzing URL characteristics and using a Random Forest classification model, the system can help identify potentially phishing websites and provide users with an additional layer of awareness before visiting suspicious URLs.
+---
+
+⭐ Conclusion
+
+The Phishing URL Detection System demonstrates how Machine Learning can be applied to a real-world cybersecurity problem.
+
+By analyzing URL characteristics and using a Random Forest classification model, the system can identify URLs as potentially Phishing or Legitimate.
+
+The project demonstrates the complete Machine Learning workflow, including data preprocessing, feature selection, model training, model evaluation, model saving, URL feature extraction, and deployment through a Streamlit web application.
